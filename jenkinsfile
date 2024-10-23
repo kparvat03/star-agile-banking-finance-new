@@ -24,7 +24,7 @@ pipeline {
             }
        stage('Create Docker Image') {
            steps {
-               sh 'sh 'docker build -t bankingproject:2.0 .'
+               sh 'sh 'docker build -t bankingproject .'
                     }
                 }
        stage('Docker-Login') {
@@ -36,7 +36,12 @@ pipeline {
                 }
        stage('Push-Image') {
            steps {
-               sh 'docker push bankingproject:2.0'
+               {
+                // Tag the Docker image with your Docker Hub repository name
+                sh "docker tag bankingproject kparvat03/bankingproject:latest"
+                
+                // Push the tagged image to Docker Hub
+                sh "docker push kparvat03/bankingproject:latest"
                      }
                 }
        stage('Config & Deployment') {
