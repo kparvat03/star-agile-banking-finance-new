@@ -24,7 +24,7 @@ pipeline {
             }
        stage('Create Docker Image') {
            steps {
-               sh 'sh 'docker build -t bankingproject .'
+               sh 'sh docker build -t bankingproject .'
                     }
                 }
        stage('Docker-Login') {
