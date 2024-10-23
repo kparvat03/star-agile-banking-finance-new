@@ -24,7 +24,7 @@ pipeline {
             }
        stage('Create Docker Image') {
            steps {
-               sh 'sh 'docker build -t kparvat03/bankingproject:2.0 .'
+               sh 'sh 'docker build -t bankingproject:2.0 .'
                     }
                 }
        stage('Docker-Login') {
@@ -36,7 +36,7 @@ pipeline {
                 }
        stage('Push-Image') {
            steps {
-               sh 'docker push kparvat03/bankingproject:2.0'
+               sh 'docker push bankingproject:2.0'
                      }
                 }
        stage('Config & Deployment') {
